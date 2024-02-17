@@ -1,0 +1,7 @@
+<h2>¿Cuántos equipos?</h2>
+
+<div class="button-group">
+  <button *ngFor="let i of [1, 2, 3, 4, 5]" (click)="selectTeams(i)">
+    {{ i }}
+  </button>
+</div>

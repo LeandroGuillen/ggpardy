@@ -1,0 +1,272 @@
+:host {
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+
+.isAnswered {
+  color: transparent;
+  text-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3);
+  background-color: #f3f3f3 !important;
+}
+
+.carter-one-regular {
+  font-family: "Carter One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.category {
+  padding: 0.4rem;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: brown;
+  }
+}
+
+.question-info {
+  font-size: 3rem;
+  color: greenyellow;
+}
+
+.question {
+  padding: 1rem;
+  width: 100%;
+}
+
+.question-button {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: beige;
+  width: 100%;
+  height: 6rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: 0.3rem solid transparent;
+
+  &:hover {
+    border: 0.3rem solid orange;
+  }
+
+  &.selected {
+    background: yellow;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+.selected-question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+
+  background: brown;
+  position: fixed;
+  top: 5%;
+  border-radius: 2rem;
+  width: 80%;
+  max-width: 60rem;
+  min-height: 50%;
+  padding: 6rem;
+  z-index: 1000;
+
+  hr {
+    width: 100%;
+  }
+
+  .answer {
+    font-size: 3rem;
+    color: azure;
+    background-color: cadetblue;
+    padding: 2rem;
+    border-radius: 2rem;
+    max-height: 30rem;
+    overflow-y: auto;
+  }
+
+  .timer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .timer {
+    color: bisque;
+    font-size: 3rem;
+  }
+
+  .hourglass {
+    width: 5rem;
+  }
+
+  .timeup {
+    font-size: 5rem;
+    color: aquamarine;
+    animation: jitter 1s linear infinite, redden 2s infinite;
+
+    @keyframes jitter {
+      0% {
+        transform: translate(2px, 1px) rotate(0deg);
+      }
+      10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+      }
+      20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+      }
+      30% {
+        transform: translate(0px, 2px) rotate(0deg);
+      }
+      40% {
+        transform: translate(1px, -1px) rotate(1deg);
+      }
+      50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+      }
+      60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+      }
+      70% {
+        transform: translate(2px, 1px) rotate(-1deg);
+      }
+      80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+      }
+      90% {
+        transform: translate(2px, 2px) rotate(0deg);
+      }
+      100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+      }
+    }
+
+    @keyframes redden {
+      0% {
+        color: red;
+      }
+      25% {
+        color: aquamarine;
+      }
+      50% {
+        color: blueviolet;
+      }
+      75% {
+        color: greenyellow;
+      }
+      100% {
+        color: red;
+      }
+    }
+  }
+
+  &.clicked {
+    animation: click 0.3s;
+
+    @keyframes click {
+      0% {
+        transform: scale(0.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .question-text {
+    color: whitesmoke;
+    font-size: 3rem;
+    max-height: 30rem;
+    overflow-y: auto;
+  }
+
+  .show-answer-button {
+    background: darkgreen;
+    color: white;
+    border: none;
+    border-radius: 2rem; // Make it a pill shape
+    padding: 2rem 4rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-size: 2rem;
+
+    &:after {
+      content: "";
+      background: cadetblue;
+      display: block;
+      position: absolute;
+      padding-top: 300%;
+      padding-left: 350%;
+      margin-left: -20px;
+      margin-top: -120%;
+      opacity: 0;
+      transition: all 0.8s;
+    }
+
+    &:active:after {
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+      transition: 0s;
+    }
+
+    &:hover {
+      background: cadetblue;
+      transform: scale(1.05); // Slightly increase the size on hover
+    }
+  }
+}
+
+.teams-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+
+  app-team-card {
+    margin-left: 1rem;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+
+  :nth-child(2) {
+    background-color: #064105;
+  }
+}

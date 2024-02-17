@@ -1,0 +1,35 @@
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.button-group > button {
+  flex: 1;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  font-size: 3rem;
+  background-color: beige;
+  width: 10rem;
+  height: 6rem;
+  border: 0.3rem solid transparent;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  font-family: "Carter One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  &:hover {
+    border: 0.3rem solid orange;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
